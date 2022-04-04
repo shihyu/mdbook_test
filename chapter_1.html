@@ -135,13 +135,10 @@
                 <div id="content" class="content">
                     <main>
                         <h2 id="mdbook的安裝與初次執行"><a class="header" href="#mdbook的安裝與初次執行">mdBook的安裝與初次執行</a></h2>
-<ul>
-<li>下載 將此執行檔複製到<strong>PATH</strong>指到的路徑內即可。
-<ul>
-<li>https://github.com/rust-lang/mdBook/releases</li>
-</ul>
-</li>
-</ul>
+<h3 id="下載"><a class="header" href="#下載">下載</a></h3>
+<p>將此執行檔複製到<strong>PATH</strong>指到的路徑內即可。</p>
+<pre><code>https://github.com/rust-lang/mdBook/releases
+</code></pre>
 <h3 id="初次執行"><a class="header" href="#初次執行">初次執行</a></h3>
 <p>在要存放書本的資料夾內執行指令<code>mdbook init</code>並回應內容：</p>
 <h3 id="啟始環境"><a class="header" href="#啟始環境">啟始環境</a></h3>
@@ -227,6 +224,22 @@ title = &quot;用Markdown寫電子書：使用mdBook超簡單&quot;
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
