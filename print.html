@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Book of Programming</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Book of Programming</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="mdbook的安裝與初次執行"><a class="header" href="#mdbook的安裝與初次執行">mdBook的安裝與初次執行</a></h2>
+<ul>
+<li>下載 將此執行檔複製到<strong>PATH</strong>指到的路徑內即可。
+<ul>
+<li>https://github.com/rust-lang/mdBook/releases</li>
+</ul>
+</li>
+</ul>
+<h3 id="初次執行"><a class="header" href="#初次執行">初次執行</a></h3>
+<p>在要存放書本的資料夾內執行指令<code>mdbook init</code>並回應內容：</p>
+<h3 id="啟始環境"><a class="header" href="#啟始環境">啟始環境</a></h3>
+<pre><code>mdbook init
+
+Do you want a .gitignore to be created? (y/n)
+y
+What title would you like to give the book?
+我的第一本網頁書
+2020-04-23 18:04:31 [INFO] (mdbook::book::init): Creating a new book with stub content
+
+All done, no errors...
+</code></pre>
+<p>要產生樣式檔則使用<code>mdbook init --theme</code>，/src會多出theme子目錄</p>
+<p>mdBook自動產生書本的原始架構與相關檔案。目錄結構如下：</p>
+<pre><code class="language-sh">存放書本的資料夾/
+├── book
+└── src
+    ├── chapter_1.md
+    └── SUMMARY.md
+</code></pre>
+<h3 id="組建書本"><a class="header" href="#組建書本">組建書本</a></h3>
+<p>子目錄與檔案都產生後以下列指令執行第一次組建：</p>
+<pre><code>mdbook build
+</code></pre>
+<p>一切正常的話表示 book 資料夾內已有需要的網頁檔案了，再來啟動測試用的網頁伺服器：</p>
+<pre><code>mdbook serve
+</code></pre>
+<p>最後用瀏覽器瀏覽 <code>http://localhost:3000</code>，一切無誤的話會看到預設的網頁內容。</p>
+<h3 id="書本設定"><a class="header" href="#書本設定">書本設定</a></h3>
+<p>開始說明mdBook電子書的組織方法。</p>
+<p>電子書的基本設定資料是存放在根目錄的book.toml檔案。</p>
+<p>▼ 範例：</p>
+<pre><code class="language-sh">[book]
+authors = [&quot;jdev.tw]
+language = &quot;zh&quot;
+multilingual = false
+src = &quot;src&quot;
+title = &quot;用Markdown寫電子書：使用mdBook超簡單&quot;
+</code></pre>
+<h3 id="控制主文件summarymd"><a class="header" href="#控制主文件summarymd">控制主文件：SUMMARY.md</a></h3>
+<p>SUMMARY.md是整本書的主要控制文件，左側的章節超連結即由SUMMARY.md組成。它由三大部份組成，每個部份可有多個項目：</p>
+<pre><code class="language-sh">* [第一章](第一章.md)
+    * [第一節](第一章第一節.md)
+    * [第二節](第一章第二節.md)
+    * ...
+* [第二章](第二章.md)
+    * [第一節](第二章第一節.md)
+    * [第二節](第二章第二節.md)    
+    * ...
+* ...
+</code></pre>
+<pre><code class="language-sh"># 用Markdown寫書：使用mdBook超簡單
+
+[修改歷程](./README.md)
+
+----
+
+- [mdBook是什麼？](./chapter_1.md)
+- [mdBook的安裝與初次執行](./chapter_2.md)
+    - [下載](./chapter_2.1.md)
+    - [初次執行](./chapter_2.2.md)
+- [書本設定：book.toml](./chapter_3.md)
+- [控制主文件：SUMMARY.md](./chapter_4.md)
+- [打包與部署](./chapter_5.md)
+
+----
+
+[宣告事項](./footer.md)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
