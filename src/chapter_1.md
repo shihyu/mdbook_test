@@ -1,7 +1,11 @@
 ## mdBook的安裝與初次執行
 
-- 下載 將此執行檔複製到**PATH**指到的路徑內即可。
-  - https://github.com/rust-lang/mdBook/releases
+### 下載 
+將此執行檔複製到**PATH**指到的路徑內即可。
+
+```
+https://github.com/rust-lang/mdBook/releases
+```
 
 ### 初次執行
 
